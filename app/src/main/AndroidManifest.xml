@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TallerMaterial_Motos">
+        <activity android:name=".DetalleMoto"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
