@@ -1,5 +1,6 @@
 package com.example.tallermaterial_motos;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -18,7 +19,7 @@ import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdaptadorMoto.OnMotoClickListener {
     private RecyclerView listadoMotos;
     private AdaptadorMoto adapter;
     private LinearLayoutManager llm;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         motos = new ArrayList<>();
         motos.add(new Moto("RX 2020", "Honda", "AAA1234", R.drawable.ima_1));
         llm = new LinearLayoutManager(this);
-        adapter = new AdaptadorMoto(motos);
+        adapter = new AdaptadorMoto(motos, this);
         llm.setOrientation(RecyclerView.VERTICAL);
 
         listadoMotos.setLayoutManager(llm);
@@ -52,4 +53,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onMotoClick(Moto m) {
+        Intent intent;
+        Bundle bundle;
+
+        bundle = new Bundle();
+        bundle.putInt("Foto", m.getFoto());
+        bundle.putString("Modelo", m.getModelo());
+        bundle.putString("Marca", m.getMarca());
+        bundle.putString("Placa", m.getPlacas());
+
+        intent = new Intent(MainActivity.this, DetalleMoto.class);
+        intent.putExtra("datos",bundle);
+        startActivity(intent);
+    }
 }

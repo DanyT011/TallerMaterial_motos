@@ -14,9 +14,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdaptadorMoto extends  RecyclerView.Adapter<AdaptadorMoto.MotoViewHolder>{
     private ArrayList<Moto> motos;
+    private OnMotoClickListener clickListener;
 
-    public AdaptadorMoto(ArrayList<Moto> motos){
+    public AdaptadorMoto(ArrayList<Moto> motos, OnMotoClickListener clickListener){
         this.motos = motos;
+        this.clickListener = clickListener;
     }
 
     @NonNull
@@ -34,6 +36,13 @@ public class AdaptadorMoto extends  RecyclerView.Adapter<AdaptadorMoto.MotoViewH
         holder.modelo.setText(m.getModelo());
         holder.marca.setText(m.getMarca());
         holder.placa.setText(m.getPlacas());
+        holder.v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickListener.onMotoClick(m);
+            }
+        });
+
     }
 
     @Override
@@ -54,5 +63,9 @@ public class AdaptadorMoto extends  RecyclerView.Adapter<AdaptadorMoto.MotoViewH
             marca = v.findViewById(R.id.lblMarca);
             placa = v.findViewById(R.id.lblPlaca);
         }
+    }
+
+    public interface OnMotoClickListener{
+        void onMotoClick(Moto m);
     }
 }
