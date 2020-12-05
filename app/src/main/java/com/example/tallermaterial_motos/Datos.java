@@ -10,4 +10,13 @@ public class Datos {
     }
 
     public static ArrayList<Moto> obtener(){return motos;}
+
+    public static void eliminar(Moto m){
+        for (int i = 0; i < motos.size(); i++) {
+            if(motos.get(i).getPlacas().equals(m.getPlacas())){
+                motos.remove(i);
+                break;
+            }
+        }
+    }
 }

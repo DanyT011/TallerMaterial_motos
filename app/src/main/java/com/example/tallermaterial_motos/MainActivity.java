@@ -31,11 +31,13 @@ public class MainActivity extends AppCompatActivity implements AdaptadorMoto.OnM
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        FloatingActionButton fab = findViewById(R.id.fab);
 
         listadoMotos = findViewById(R.id.lstMotos);
+        motos = Datos.obtener();
 
-        motos = new ArrayList<>();
-        motos.add(new Moto("RX 2020", "Honda", "AAA1234", R.drawable.ima_1));
+       /* motos = new ArrayList<>();
+        motos.add(new Moto("RX 2020", "Honda", "AAA1234", R.drawable.ima_1));*/
         llm = new LinearLayoutManager(this);
         adapter = new AdaptadorMoto(motos, this);
         llm.setOrientation(RecyclerView.VERTICAL);
@@ -43,15 +45,15 @@ public class MainActivity extends AppCompatActivity implements AdaptadorMoto.OnM
         listadoMotos.setLayoutManager(llm);
         listadoMotos.setAdapter(adapter);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
+
+    public void crear(View v){
+        Intent intent;
+        intent = new Intent(MainActivity.this, CrearMoto.class);
+        startActivity(intent);
+        finish();
+    }
+
 
     @Override
     public void onMotoClick(Moto m) {

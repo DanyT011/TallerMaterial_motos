@@ -11,9 +11,13 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="moto">Moto</string>
+    <string name="crear_moto">Crear Moto</string>
     <string name="modelo">Modelo</string>
     <string name="marca">Marca</string>
     <string name="placa">Placa</string>
+    <string name="guradar">GUARDAR</string>
+    <string name="limpiar">LIMPIAR</string>
+    <string name="guardado_exitosamente">Moto guardada éxitosamente</string>
     <string name="Eliminar">Eliminar</string>
 
 </resources>
