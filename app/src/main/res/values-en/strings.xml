@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TallerMaterial_Motos</string>
+    <string name="moto">Motorcycle</string>
+    <string name="crear_moto">Create Motorcycle</string>
+    <string name="modelo">Model</string>
+    <string name="marca">Brand</string>
+    <string name="placa">Plate</string>
+    <string name="guradar">SAVE</string>
+    <string name="limpiar">CLEAN</string>
+    <string name="guardado_exitosamente">Motorcycle successfully saved</string>
+    <string name="Eliminar">Delete</string>
+    <string name="seleccionar_foto">Select the photo of the Motorcycle</string>
+    <string name="selec_foto_val">You must select a photo</string>
+    <string name="digitar_modelo">Type the model</string>
+    <string name="digitar_marca">Type the brand</string>
+    <string name="digitar_placa">Type the plate</string>
+    <string name="mensaje_advertencia">Are you sure you want to remove this motorcycle?</string>
+    <string name="si">YES</string>
+    <string name="no">NOT</string>
+    <string name="eliminar_moto">Remove Motorcycle</string>
+</resources>

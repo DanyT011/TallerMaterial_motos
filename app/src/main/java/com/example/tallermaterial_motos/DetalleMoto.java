@@ -63,7 +63,7 @@ public class DetalleMoto extends AppCompatActivity {
         String positivo, negativo;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.eliminar_persona);
+        builder.setTitle(R.string.eliminar_moto);
         builder.setMessage(R.string.mensaje_advertencia);
         positivo = getString(R.string.si);
         negativo = getString(R.string.no);
