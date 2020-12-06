@@ -19,5 +19,14 @@
     <string name="limpiar">LIMPIAR</string>
     <string name="guardado_exitosamente">Moto guardada éxitosamente</string>
     <string name="Eliminar">Eliminar</string>
+    <string name="seleccionar_foto">Seleccione la foto de la persona</string>
+    <string name="selec_foto_val">Debe seleccionar una foto</string>
+    <string name="digitar_modelo">Digite el modelo</string>
+    <string name="digitar_marca">Digite la marca</string>
+    <string name="digitar_placa">Digite la la placa</string>
+    <string name="eliminar_persona">Eliminar Persona</string>
+    <string name="mensaje_advertencia">¿Está seguro de que desea eliminar esta persona?</string>
+    <string name="si">SI</string>
+    <string name="no">NO</string>
 
 </resources>

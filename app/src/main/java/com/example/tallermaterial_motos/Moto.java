@@ -1,15 +1,16 @@
 package com.example.tallermaterial_motos;
 
 public class Moto {
-    private String modelo, marca, placas;
-    private int foto;
+    private String modelo, marca, placas, id;
 
-    public Moto(String modelo, String marca, String placas, int foto) {
+    public Moto(String modelo, String marca, String placas, String id) {
         this.modelo = modelo;
         this.marca = marca;
         this.placas = placas;
-        this.foto = foto;
+        this.id = id;
     }
+
+    public Moto(){}
 
     public String getModelo() {
         return modelo;
@@ -35,12 +36,12 @@ public class Moto {
         this.placas = placas;
     }
 
-    public int getFoto() {
-        return foto;
+    public String getId() {
+        return id;
     }
 
-    public void setFoto(int foto) {
-        this.foto = foto;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void guardar(){
@@ -50,4 +51,5 @@ public class Moto {
     public void eliminar(){
         Datos.eliminar(this);
     }
+
 }

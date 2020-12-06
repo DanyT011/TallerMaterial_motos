@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="eliminar"
     tools:context=".DetalleMoto">
 
     <com.github.clans.fab.FloatingActionMenu
@@ -12,36 +13,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        fab:menu_animationDelayPerItem="50"
+        fab:menu_buttonSpacing="0dp"
+        fab:menu_colorNormal="@color/accent"
+        fab:menu_colorPressed="@color/accent"
+        fab:menu_colorRipple="#99FFFFFF"
         fab:menu_fab_size="normal"
-        fab:menu_showShadow="true"
+        fab:menu_icon="@drawable/fab_add"
+        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+        fab:menu_labels_margin="0dp"
+        fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
         fab:menu_shadowColor="#66000000"
         fab:menu_shadowRadius="4dp"
         fab:menu_shadowXOffset="1dp"
         fab:menu_shadowYOffset="3dp"
-        fab:menu_colorNormal="@color/accent"
-        fab:menu_colorPressed="@color/accent"
-        fab:menu_colorRipple="#99FFFFFF"
-        fab:menu_animationDelayPerItem="50"
-        fab:menu_icon="@drawable/fab_add"
-        fab:menu_buttonSpacing="0dp"
-        fab:menu_labels_margin="0dp"
-        fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
-        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right">
+        fab:menu_showShadow="true">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@android:drawable/ic_menu_delete"
-            fab:fab_size="mini"
-            fab:fab_label="@string/Eliminar" />
+            fab:fab_label="@string/Eliminar"
+            fab:fab_size="mini" />
 
     </com.github.clans.fab.FloatingActionMenu>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:onClick="eliminar"
         android:orientation="vertical">
 
         <TextView

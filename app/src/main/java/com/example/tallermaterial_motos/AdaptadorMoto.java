@@ -1,5 +1,6 @@
 package com.example.tallermaterial_motos;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -31,8 +37,16 @@ public class AdaptadorMoto extends  RecyclerView.Adapter<AdaptadorMoto.MotoViewH
     @Override
     public void onBindViewHolder(@NonNull MotoViewHolder holder, int position) {
         Moto m = motos.get(position);
+        StorageReference storageReference;
+        storageReference = FirebaseStorage.getInstance().getReference();
 
-        holder.foto.setImageResource(m.getFoto());
+        storageReference.child(m.getId()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(holder.foto);
+            }
+        });
+
         holder.modelo.setText(m.getModelo());
         holder.marca.setText(m.getMarca());
         holder.placa.setText(m.getPlacas());

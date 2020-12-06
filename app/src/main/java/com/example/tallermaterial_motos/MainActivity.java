@@ -5,7 +5,13 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements AdaptadorMoto.OnM
     private AdaptadorMoto adapter;
     private LinearLayoutManager llm;
     private ArrayList<Moto> motos;
+    private DatabaseReference databaseReference;
+    private String db = "Motos";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +42,8 @@ public class MainActivity extends AppCompatActivity implements AdaptadorMoto.OnM
         FloatingActionButton fab = findViewById(R.id.fab);
 
         listadoMotos = findViewById(R.id.lstMotos);
-        motos = Datos.obtener();
 
-       /* motos = new ArrayList<>();
-        motos.add(new Moto("RX 2020", "Honda", "AAA1234", R.drawable.ima_1));*/
+        motos = new ArrayList<>();
         llm = new LinearLayoutManager(this);
         adapter = new AdaptadorMoto(motos, this);
         llm.setOrientation(RecyclerView.VERTICAL);
@@ -45,13 +51,32 @@ public class MainActivity extends AppCompatActivity implements AdaptadorMoto.OnM
         listadoMotos.setLayoutManager(llm);
         listadoMotos.setAdapter(adapter);
 
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child(db).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                motos.clear();
+                if(snapshot.exists()){
+                    for (DataSnapshot snap: snapshot.getChildren()){
+                        Moto m = snap.getValue(Moto.class);
+                        motos.add(m);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+                Datos.setMotos(motos);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     public void crear(View v){
         Intent intent;
         intent = new Intent(MainActivity.this, CrearMoto.class);
         startActivity(intent);
-        finish();
     }
 
 
@@ -61,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements AdaptadorMoto.OnM
         Bundle bundle;
 
         bundle = new Bundle();
-        bundle.putInt("Foto", m.getFoto());
+        bundle.putString("id", m.getId());
         bundle.putString("Modelo", m.getModelo());
         bundle.putString("Marca", m.getMarca());
         bundle.putString("Placa", m.getPlacas());

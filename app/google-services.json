@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "947729365016",
+    "project_id": "tallermaterialmotos",
+    "storage_bucket": "tallermaterialmotos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947729365016:android:c6a95cd2211d03f28dab6d",
+        "android_client_info": {
+          "package_name": "com.example.tallermaterial_motos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947729365016-9fbajomhe42h0rc1akhrhep3h6f2gdmg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZxU3Es0S4rCai-c1GyVnd-QfSr92yUmk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947729365016-9fbajomhe42h0rc1akhrhep3h6f2gdmg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
