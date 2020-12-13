@@ -26,6 +26,7 @@ public class CrearMoto extends AppCompatActivity {
     private Uri uri;
     private StorageReference storageReference;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
