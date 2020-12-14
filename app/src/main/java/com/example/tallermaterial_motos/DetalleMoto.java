@@ -32,6 +32,7 @@ public class DetalleMoto extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_moto);
 
         String mod, marc, plc, id;
+        Moto m;
         foto = findViewById(R.id.imgFotoDetalle);
         modelo = findViewById(R.id.txtModeloDet);
         marca = findViewById(R.id.txtMarcaDet);
@@ -45,7 +46,7 @@ public class DetalleMoto extends AppCompatActivity {
         mod = bundle.getString("Modelo");
         marc = bundle.getString("Marca");
         plc = bundle.getString("Placa");
-
+        m = new Moto(mod, marc, plc, id);
         storageReference.child(id).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
